@@ -1,7 +1,7 @@
 /** Typescript thinks import('...js/.d.ts') needs mod.default.default */
 function fakeUnwrapDefault<T>(mod: { default: T }): T {
   // console.log("fakeUnwrapDefault", mod)
-  return mod as T
+  return mod.default as T
 }
 
 /** Typescript thinks import('...ts') doesn't need mod.default.default, but does */

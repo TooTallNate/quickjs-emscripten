@@ -1,6 +1,6 @@
-import type { QuickJSAsyncFFI as DebugAsyncifyFFI } from "./generated/ffi.WASM_DEBUG_ASYNCIFY"
-import type { QuickJSAsyncFFI as ReleaseAsyncifyFFI } from "./generated/ffi.WASM_RELEASE_ASYNCIFY"
-import type { QuickJSFFI as DebugSyncFFI } from "./generated/ffi.WASM_DEBUG_SYNC"
+//import type { QuickJSAsyncFFI as DebugAsyncifyFFI } from "./generated/ffi.WASM_DEBUG_ASYNCIFY"
+//import type { QuickJSAsyncFFI as ReleaseAsyncifyFFI } from "./generated/ffi.WASM_RELEASE_ASYNCIFY"
+//import type { QuickJSFFI as DebugSyncFFI } from "./generated/ffi.WASM_DEBUG_SYNC"
 import type { QuickJSFFI as ReleaseSyncFFI } from "./generated/ffi.WASM_RELEASE_SYNC"
 import type {
   EmscriptenModuleLoader,
@@ -12,13 +12,13 @@ import type { QuickJSAsyncWASMModule } from "./module-asyncify"
 import { unwrapTypescript, unwrapJavascript } from "./esmHelpers"
 
 /** @private */
-export type QuickJSFFI = DebugSyncFFI | ReleaseSyncFFI
+export type QuickJSFFI = ReleaseSyncFFI
 /** @private */
-export type QuickJSFFIConstructor = typeof DebugSyncFFI | typeof ReleaseSyncFFI
+export type QuickJSFFIConstructor = typeof ReleaseSyncFFI
 /** @private */
-export type QuickJSAsyncFFI = DebugAsyncifyFFI | ReleaseAsyncifyFFI
+export type QuickJSAsyncFFI = any
 /** @private */
-export type QuickJSAsyncFFIConstructor = typeof DebugAsyncifyFFI | typeof ReleaseAsyncifyFFI
+export type QuickJSAsyncFFIConstructor = any
 
 /**
  * quickjs-emscripten provides multiple build variants of the core WebAssembly
@@ -139,12 +139,14 @@ export function memoizePromiseFactory<T>(fn: () => Promise<T>): () => Promise<T>
 export const DEBUG_SYNC: SyncBuildVariant = {
   type: "sync",
   async importFFI() {
-    const mod = await import("./generated/ffi.WASM_DEBUG_SYNC.js")
-    return unwrapTypescript(mod).QuickJSFFI
+    throw new Error('not implemented')
+    // const mod = await import("./generated/ffi.WASM_DEBUG_SYNC.js")
+    // return unwrapTypescript(mod).QuickJSFFI
   },
   async importModuleLoader() {
-    const mod = await import("./generated/emscripten-module.WASM_DEBUG_SYNC.js")
-    return unwrapJavascript(mod).default
+    throw new Error('not implemented')
+    // const mod = await import("./generated/emscripten-module.WASM_DEBUG_SYNC.js")
+    // return unwrapJavascript(mod).default
   },
 }
 
@@ -160,7 +162,7 @@ export const RELEASE_SYNC: SyncBuildVariant = {
   },
   async importModuleLoader() {
     const mod = await import("./generated/emscripten-module.WASM_RELEASE_SYNC.js")
-    return unwrapJavascript(mod).default
+    return unwrapJavascript(mod)
   },
 }
 
@@ -173,12 +175,14 @@ export const RELEASE_SYNC: SyncBuildVariant = {
 export const DEBUG_ASYNC: AsyncBuildVariant = {
   type: "async",
   async importFFI() {
-    const mod = await import("./generated/ffi.WASM_DEBUG_ASYNCIFY.js")
-    return unwrapTypescript(mod).QuickJSAsyncFFI
+    throw new Error('not implemented')
+    // const mod = await import("./generated/ffi.WASM_DEBUG_ASYNCIFY.js")
+    // return unwrapTypescript(mod).QuickJSAsyncFFI
   },
   async importModuleLoader() {
-    const mod = await import("./generated/emscripten-module.WASM_DEBUG_ASYNCIFY.js")
-    return unwrapJavascript(mod).default
+    throw new Error('not implemented')
+    // const mod = await import("./generated/emscripten-module.WASM_DEBUG_ASYNCIFY.js")
+    // return unwrapJavascript(mod).default
   },
 }
 
@@ -188,11 +192,13 @@ export const DEBUG_ASYNC: AsyncBuildVariant = {
 export const RELEASE_ASYNC: AsyncBuildVariant = {
   type: "async",
   async importFFI() {
-    const mod = await import("./generated/ffi.WASM_RELEASE_ASYNCIFY.js")
-    return unwrapTypescript(mod).QuickJSAsyncFFI
+    throw new Error('not implemented')
+    // const mod = await import("./generated/ffi.WASM_RELEASE_ASYNCIFY.js")
+    // return unwrapTypescript(mod).QuickJSAsyncFFI
   },
   async importModuleLoader() {
-    const mod = await import("./generated/emscripten-module.WASM_RELEASE_ASYNCIFY.js")
-    return unwrapJavascript(mod).default
+    throw new Error('not implemented')
+    // const mod = await import("./generated/emscripten-module.WASM_RELEASE_ASYNCIFY.js")
+    // return unwrapJavascript(mod).default
   },
 }

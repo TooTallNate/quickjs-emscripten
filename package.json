@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "sideEffects": false,
   "license": "MIT",
-  "type": "commonjs",
   "keywords": [
     "eval",
     "quickjs",
@@ -26,7 +25,6 @@
     "!dist/*.tsbuildinfo"
   ],
   "scripts": {
-    "prepack": "yarn build",
     "tarball": "make build/quickjs-emscripten.tgz",
     "prepare": "yarn prettier-check && yarn tarball && yarn test && yarn test-dist && yarn smoketest-node",
     "clean": "make clean",

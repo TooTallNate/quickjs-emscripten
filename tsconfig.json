@@ -7,14 +7,14 @@
     "ts/**/*.json",
     "ts/**/*.wasm"
   ],
-  "exclude": ["node_modules", "examples"],
+  "exclude": ["node_modules", "examples", "ts/**/*.test.ts"],
   "compilerOptions": {
     /* Basic Options */
     "incremental": true /* Enable incremental compilation */,
 
-    "target": "ES2021" /* Node 16+ per https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping */,
-    "module": "nodenext" /* Some imports are really imports: https://www.typescriptlang.org/docs/handbook/esm-node.html */,
-    "moduleResolution": "nodenext" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+    "target": "ES2020" /* Node 14+ per https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping */,
+    "module": "CommonJS" /* Some imports are really imports: https://www.typescriptlang.org/docs/handbook/esm-node.html */,
+    "moduleResolution": "Node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
 
     "lib": ["ES2021", "dom"] /* Specify library files to be included in the compilation. */,
     "allowJs": true /* Allow javascript files to be compiled. */,
