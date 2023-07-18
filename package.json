@@ -1,5 +1,5 @@
 {
-  "name": "quickjs-emscripten",
+  "name": "@tootallnate/quickjs-emscripten",
   "version": "0.23.0",
   "main": "dist/index.js",
   "sideEffects": false,
